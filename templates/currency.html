@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h2>Währungsrechner</h2>
+
+<form method="get">
+    <label for="currency1">Währung 1: </label>
+    <select name="currency1">
+        {% if name1 == None: %}
+        <option value="{{ currencies[0][1] }}" selected> {{ currencies[0][0] }}</option>
+        {% elif name1 != None: %}
+        <option value="{{ iso1 }}" selected> {{ name1 }}</option>
+        {% endif %}
+
+        {% for item in currencies %}
+        {% if iso1 == item[1]: %}
+        continue
+        {% else %}
+        <option value="{{ item[1] }}"> {{ item[0] }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <label for="currency2">Währung 2: </label>
+    <select name="currency2">
+        {% if name2 == None: %}
+        <option value="{{ currencies[1][1] }}" selected> {{ currencies[1][0] }}</option>
+        {% elif name2 != None: %}
+        <option value="{{ iso2 }}" selected> {{ name2 }}</option>
+        {% endif %}
+
+        {% for item in currencies %}
+        {% if iso2 == item[1]: %}
+        continue
+        {% else %}
+        <option value="{{ item[1] }}"> {{ item[0] }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+    <input type="submit" value="OK"/>
+    <label for="Wechselkurs">Wechselkurs: </label>
+    <button name="Wechselkurs">
+        {{ exchange_rate_rounded }}
+    </button>
+</form>
+
+<table class="u-pull-left">
+    <thead>
+    <tr>
+        <th width="150">{{ name1 }} ({{ iso1 }})</th>
+        <th width="300">{{ name2 }} ({{ iso2 }})</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for a in amount %}
+    <tr>
+        <td>{{ a }}</td>
+        <td>{{ exchange_money[a] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

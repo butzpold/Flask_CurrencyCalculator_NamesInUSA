@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<h2>Namen in den USA nach Staaten und Jahrgängen</h2>
+<br>
+<form method="get">
+    <div class="row">
+        <div class="three columns">
+            <label for="name">Name: </label>
+            <!--            <input type="text" id="text_name">-->
+            <select name="name">
+                {% for name in names %}
+                <option value="{{ name }}">{{ name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="three columns">
+            <label for="gender">Geschlecht: </label>
+            <!--            <input type="text" id="text_gender">-->
+            <select name="gender">
+                {% for ge in gender %}
+                <option value="{{ ge }}">{{ ge }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="three columns">
+            <label for="state">Bundesstaat: </label>
+            <!--            <input type="text" id="text_state">-->
+            <select name="state">
+                {% for state in states %}
+                <option value="{{ state }}">{{ state }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="three columns">
+            <button name="add" type="submit" value="{{ button_add }}">OK</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="nine columns">
+            <table class="u-pull-left">
+                <thead>
+                <tr>
+                    <th width="300">Name</th>
+                    <th width="100">Geschlecht</th>
+                    <th width="100">Bundesstaat</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for a in to_plot %}
+                <tr>
+                    <td>{{ a[0] }}</td>
+                    <td>{{ a[1] }}</td>
+                    <td>{{ a[2] }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="three columns">
+            <button name="delete" type="submit" value="{{ button_del }}">Löschen</button>
+        </div>
+    </div>
+</form>
+<strong>Nur 3 Einträge!</strong>
+<br>
+<img src="{{ source }}">
+
+
+{% endblock %}
