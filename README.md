@@ -1,5 +1,5 @@
 # Flask_CurrencyCalculator_NamesInUSA
-### This is a small website with two pages working with Flask in the backend
+### This is a small website with two pages using Python Flask in the backend
 ## CurrencyCalculator
 ![](/Examples/example_CurrencyCalculator.png)
 The first page is a simple currency calculator which shows the exchange rate and the money for certain amounts by choosing two currencies and press "OK". The exchange rates are made-up by myself.
