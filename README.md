@@ -6,7 +6,7 @@ The first page is a simple currency calculator which shows the exchange rate and
 
 ## NamesInUSA
 ![](/Examples/example_NamesInUSA.png)
-
+<br>
 The second page is an example for filter and plot Data from a .csv-file with Flask. 
 You can choose a Name, the gender, and a state press "OK" and you get the a Plot of the amount over the years for the Name in the choosen state. It is possible to choose up to three Names to let them plot and by pressing "Löschen" you delete the last plotted Name
 
